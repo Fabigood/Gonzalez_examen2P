@@ -27,6 +27,18 @@ void printfdetalle(int ingresos[][meses], int egresos[][meses]) {
     }
 }
 
+void Totalano(int ingresos[][meses], int egresos[][meses]) {
+    printf("\nTotales de ingresos y egresos en todo el año por cada insumo:\n");
+    for (int i = 0; i < num_insumo; ++i) {
+        int totalIngresos = 0;
+        int totalEgresos = 0; //funcion para tener los valores totaltes de ingreso y egresos
+        for (int j = 0; j < meses; ++j) {
+            totalIngresos += ingresos[i][j];
+            totalEgresos += egresos[i][j];
+        }
+        printf("    Insumo %d:   Ingresos: %d,      Egresos: %d\n", i + 1, totalIngresos, totalEgresos);
+    }
+}
 
 
 
@@ -43,7 +55,7 @@ srand(time(NULL));
     int opcion;
     do {
         printf("\n Menu :\n");
-        printf("1.. Ingresos y egresos por cada insumo y mes.\2n");
+        printf("1.. Ingresos y egresos por cada insumo y mes.\n");
         printf("2.Total de ingresos y egresos en todo el ano por cada insumo.\n");
         printf("0. Salir.\n");
         printf("Seleccione opcion: ");
@@ -54,7 +66,7 @@ srand(time(NULL));
                  printfdetalle(ingresos, egresos);                                  //mensuales
                 break;
             case 2:
-                
+                Totalano(ingresos, egresos);
                 break;  //anuales 
             case 0:
                 printf("Exit del programa.\n");//salir programa
