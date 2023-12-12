@@ -1,6 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define meses  12 
+#define num_insumo 30 //definicion de num de insumos y meses
+
+
+void ingresarDatosRandom(int ingresos[][meses], int egresos[][meses]) {
+    for (int i = 0; i < num_insumo; ++i) {
+        for (int j = 0; j < meses; ++j) {
+            ingresos[i][j] = generarNumRandom();
+            egresos[i][j] = generarNumrRandom();
+        }
+    }
+}
+
+
+
+
+
 
 
 int main() {
@@ -24,7 +41,7 @@ int main() {
                 
                 break;  //anuales 
             case 0:
-                printf("Exit  del programa.\n");//salir programa
+                printf("Exit del programa.\n");//salir programa
                 break;
             default:
                 printf("Opción no válida. Intente de nuevo.\n");
