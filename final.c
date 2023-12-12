@@ -42,8 +42,6 @@ void Totalano(int ingresos[][meses], int egresos[][meses]) {
 
 
 
-
-
 int main() { //num randomm
 srand(time(NULL)); 
 
