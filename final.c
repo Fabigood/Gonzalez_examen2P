@@ -8,8 +8,21 @@
 void ingresarDatosRandom(int ingresos[][meses], int egresos[][meses]) {
     for (int i = 0; i < num_insumo; ++i) {
         for (int j = 0; j < meses; ++j) {
-            ingresos[i][j] = generarNumRandom();
-            egresos[i][j] = generarNumrRandom();
+            ingresos[i][j] = generarNumRan();
+            egresos[i][j] = generarNumRan(); //poner valor a cada una de estas con radom
+        }
+    }
+}
+int generarNumRan() {
+    return rand() % 100 + 1;
+    }
+
+void printfdetalle(int ingresos[][meses], int egresos[][meses]) {
+    printf("Detalle de ingresos y egresos por cada insumo y mes:\n");
+    for (int i = 0; i < num_insumo; ++i) {
+        printf("Insumo %d:\n", i + 1); //mensual de ingresos e egresos
+        for (int j = 0; j < meses; ++j) {
+            printf("     Mes %d:   Ingresos: %d,    Egresos: %d\n", j + 1, ingresos[i][j], egresos[i][j]);
         }
     }
 }
@@ -19,23 +32,26 @@ void ingresarDatosRandom(int ingresos[][meses], int egresos[][meses]) {
 
 
 
+int main() { //num randomm
+srand(time(NULL)); 
 
-int main() {
+    int ingresos[num_insumo][meses];
+    int egresos[num_insumo][meses];
 
-
+    ingresarDatosRandom(ingresos, egresos);
 
     int opcion;
     do {
         printf("\n Menu :\n");
-        printf("1.. Ingresos y egresos por cada insumo y mes.\n");
-        printf("2.Total de ingresos y egresos en todo el año por cada insumo.\n");
+        printf("1.. Ingresos y egresos por cada insumo y mes.\2n");
+        printf("2.Total de ingresos y egresos en todo el ano por cada insumo.\n");
         printf("0. Salir.\n");
         printf("Seleccione opcion: ");
         scanf("%d", &opcion);
 
         switch (opcion) {
             case 1: //menu para pedir difenretes emnsuales y anuales 
-                                                       //mensuales
+                 printfdetalle(ingresos, egresos);                                  //mensuales
                 break;
             case 2:
                 
